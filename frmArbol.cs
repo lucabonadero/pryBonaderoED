@@ -193,27 +193,43 @@ namespace pryBonaderoED
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
+            // Crear una tabla temporal para contener los datos del DataGridView
+            DataTable tabla = new DataTable();
+            foreach (DataGridViewColumn columna in dgvArbol.Columns)
+            {
+                tabla.Columns.Add(columna.HeaderText, typeof(string));
+            }
+            foreach (DataGridViewRow fila in dgvArbol.Rows)
+            {
+                DataRow nuevaFila = tabla.NewRow();
+                foreach (DataGridViewCell celda in fila.Cells)
+                {
+                    nuevaFila[celda.ColumnIndex] = celda.Value;
+                }
+                tabla.Rows.Add(nuevaFila);
+            }
+
+            // Mostrar diálogo para seleccionar la ubicación y el nombre del archivo CSV
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Archivo CSV (*.csv)|*.csv";
             saveFileDialog.Title = "Guardar archivo CSV";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Crear el objeto StreamWriter para escribir en el archivo CSV
+                // Exportar la tabla a un archivo CSV
                 StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
-
-                // Escribir los encabezados en el archivo CSV
-                streamWriter.WriteLine("Código,Nombre,Trámite");
-
-                // Escribir los nodos en el archivo CSV utilizando alguno de los métodos Recorrer
-                clsArbolBinario.RecorrerInOrder(streamWriter);
-                //clsArbolBinario.RecorrerPreOrder(streamWriter);
-                //clsArbolBinario.RecorrerPostOrder(streamWriter);
-
-                // Escribir los datos ingresados por el usuario en el archivo CSV
-                streamWriter.WriteLine(txtNombre.Text + "," + txtTramite.Text);
-
-
-                // Cerrar el objeto StreamWriter
+                foreach (DataColumn columna in tabla.Columns)
+                {
+                    streamWriter.Write(columna.ColumnName + ",");
+                }
+                streamWriter.WriteLine();
+                foreach (DataRow fila in tabla.Rows)
+                {
+                    for (int i = 0; i < tabla.Columns.Count; i++)
+                    {
+                        streamWriter.Write(fila[i].ToString() + ", ");
+                    }
+                    streamWriter.WriteLine();
+                }
                 streamWriter.Close();
             }
         }
