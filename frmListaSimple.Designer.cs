@@ -41,12 +41,12 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblTramite = new System.Windows.Forms.Label();
             this.grbListado = new System.Windows.Forms.GroupBox();
+            this.lstCola = new System.Windows.Forms.ListBox();
             this.prbGrafico = new System.Windows.Forms.PictureBox();
             this.grbEliminar = new System.Windows.Forms.GroupBox();
+            this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbCodigo = new System.Windows.Forms.ComboBox();
-            this.lstCola = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCola)).BeginInit();
             this.grbNuevo.SuspendLayout();
             this.grbListado.SuspendLayout();
@@ -117,6 +117,7 @@
             this.txtTramite.Name = "txtTramite";
             this.txtTramite.Size = new System.Drawing.Size(138, 20);
             this.txtTramite.TabIndex = 5;
+            this.txtTramite.TextChanged += new System.EventHandler(this.txtTramite_TextChanged);
             // 
             // lblCodigo
             // 
@@ -133,6 +134,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(138, 20);
             this.txtNombre.TabIndex = 4;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblNombre
             // 
@@ -149,6 +151,8 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 3;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress_1);
             // 
             // lblTramite
             // 
@@ -168,6 +172,14 @@
             this.grbListado.TabIndex = 16;
             this.grbListado.TabStop = false;
             this.grbListado.Text = "Listado en una Lista y una Grilla";
+            // 
+            // lstCola
+            // 
+            this.lstCola.FormattingEnabled = true;
+            this.lstCola.Location = new System.Drawing.Point(0, 21);
+            this.lstCola.Name = "lstCola";
+            this.lstCola.Size = new System.Drawing.Size(204, 238);
+            this.lstCola.TabIndex = 13;
             // 
             // prbGrafico
             // 
@@ -191,6 +203,15 @@
             this.grbEliminar.TabStop = false;
             this.grbEliminar.Text = "Eliminar Elemento";
             // 
+            // cmbCodigo
+            // 
+            this.cmbCodigo.FormattingEnabled = true;
+            this.cmbCodigo.Location = new System.Drawing.Point(55, 65);
+            this.cmbCodigo.Name = "cmbCodigo";
+            this.cmbCodigo.Size = new System.Drawing.Size(121, 21);
+            this.cmbCodigo.TabIndex = 7;
+            this.cmbCodigo.SelectedIndexChanged += new System.EventHandler(this.cmbCodigo_SelectedIndexChanged);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(6, 129);
@@ -209,23 +230,6 @@
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo:";
-            // 
-            // cmbCodigo
-            // 
-            this.cmbCodigo.FormattingEnabled = true;
-            this.cmbCodigo.Location = new System.Drawing.Point(55, 65);
-            this.cmbCodigo.Name = "cmbCodigo";
-            this.cmbCodigo.Size = new System.Drawing.Size(121, 21);
-            this.cmbCodigo.TabIndex = 7;
-            this.cmbCodigo.SelectedIndexChanged += new System.EventHandler(this.cmbCodigo_SelectedIndexChanged);
-            // 
-            // lstCola
-            // 
-            this.lstCola.FormattingEnabled = true;
-            this.lstCola.Location = new System.Drawing.Point(0, 21);
-            this.lstCola.Name = "lstCola";
-            this.lstCola.Size = new System.Drawing.Size(204, 238);
-            this.lstCola.TabIndex = 13;
             // 
             // frmListaSimple
             // 

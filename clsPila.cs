@@ -9,6 +9,7 @@ namespace pryBonaderoED
 {
     public class clsPila
     {
+       
         #region Nodos
         public clsNodo Primero;
         #endregion

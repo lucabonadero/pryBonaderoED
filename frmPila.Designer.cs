@@ -49,8 +49,8 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblTramite = new System.Windows.Forms.Label();
             this.grbListado = new System.Windows.Forms.GroupBox();
-            this.prbGrafico = new System.Windows.Forms.PictureBox();
             this.lstCola = new System.Windows.Forms.ListBox();
+            this.prbGrafico = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCola)).BeginInit();
             this.grbEliminado.SuspendLayout();
             this.grbNuevo.SuspendLayout();
@@ -113,7 +113,6 @@
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtTramiteRO
             // 
@@ -193,7 +192,6 @@
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtTramite
             // 
@@ -201,6 +199,7 @@
             this.txtTramite.Name = "txtTramite";
             this.txtTramite.Size = new System.Drawing.Size(138, 20);
             this.txtTramite.TabIndex = 5;
+            this.txtTramite.TextChanged += new System.EventHandler(this.txtTramite_TextChanged_1);
             // 
             // lblCodigo
             // 
@@ -217,6 +216,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(138, 20);
             this.txtNombre.TabIndex = 4;
+            this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
             // 
             // lblNombre
             // 
@@ -233,6 +233,8 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 20);
             this.txtCodigo.TabIndex = 3;
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // lblTramite
             // 
@@ -253,6 +255,14 @@
             this.grbListado.TabStop = false;
             this.grbListado.Text = "Listado en una Lista y una Grilla";
             // 
+            // lstCola
+            // 
+            this.lstCola.FormattingEnabled = true;
+            this.lstCola.Location = new System.Drawing.Point(4, 21);
+            this.lstCola.Name = "lstCola";
+            this.lstCola.Size = new System.Drawing.Size(204, 238);
+            this.lstCola.TabIndex = 12;
+            // 
             // prbGrafico
             // 
             this.prbGrafico.Image = global::pryBonaderoED.Properties.Resources.representacionPila;
@@ -262,14 +272,6 @@
             this.prbGrafico.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.prbGrafico.TabIndex = 8;
             this.prbGrafico.TabStop = false;
-            // 
-            // lstCola
-            // 
-            this.lstCola.FormattingEnabled = true;
-            this.lstCola.Location = new System.Drawing.Point(4, 21);
-            this.lstCola.Name = "lstCola";
-            this.lstCola.Size = new System.Drawing.Size(204, 238);
-            this.lstCola.TabIndex = 12;
             // 
             // frmPila
             // 
@@ -284,6 +286,7 @@
             this.Name = "frmPila";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPila";
+            this.Load += new System.EventHandler(this.frmPila_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCola)).EndInit();
             this.grbEliminado.ResumeLayout(false);
             this.grbEliminado.PerformLayout();

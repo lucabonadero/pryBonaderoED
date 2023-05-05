@@ -63,12 +63,47 @@ namespace pryBonaderoED
 
         private void frmListaSimple_Load(object sender, EventArgs e)
         {
-         
+            btnAgregar.Enabled = false;
         }
 
         private void cmbCodigo_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void ValidarCampos()
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text) && !string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtTramite.Text))
+            {
+                btnAgregar.Enabled = true;
+            }
+            else
+            {
+                btnAgregar.Enabled = false;
+            }
+        }
+
+        private void txtTramite_TextChanged(object sender, EventArgs e)
+        {
+            ValidarCampos();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ValidarCampos();
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            ValidarCampos();
+        }
+
+        private void txtCodigo_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -16,7 +16,8 @@ namespace pryBonaderoED
         {
             InitializeComponent();
         }
-        clsPila clsPila = new clsPila();
+        
+            clsPila clsPila = new clsPila();
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
@@ -40,6 +41,7 @@ namespace pryBonaderoED
                 MessageBox.Show("Llene todos los campos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
@@ -56,5 +58,53 @@ namespace pryBonaderoED
                 MessageBox.Show("No hay datos en la cola", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void txtTramite_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmPila_Load(object sender, EventArgs e)
+        {
+            btnAgregar.Enabled = false;
+        }
+        private void ValidarCampos()
+        {
+            if (!string.IsNullOrEmpty(txtCodigo.Text) && !string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtTramite.Text))
+            {
+                btnAgregar.Enabled = true;
+            }
+            else
+            {
+                btnAgregar.Enabled = false;
+            }
+        }
+        
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            ValidarCampos();
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ValidarCampos();
+        }
+
+        private void txtTramite_TextChanged_1(object sender, EventArgs e)
+        {
+            ValidarCampos();
+        }
+
+        private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+
+            {
+                e.Handled = true;
+            }
+        }
+
+        
     }
 }
