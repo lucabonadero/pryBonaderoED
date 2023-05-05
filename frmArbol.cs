@@ -210,7 +210,8 @@ namespace pryBonaderoED
                 //clsArbolBinario.RecorrerPostOrder(streamWriter);
 
                 // Escribir los datos ingresados por el usuario en el archivo CSV
-                streamWriter.WriteLine(", " + txtNombre.Text + ", " + txtTramite.Text);
+                streamWriter.WriteLine(txtNombre.Text + "," + txtTramite.Text);
+
 
                 // Cerrar el objeto StreamWriter
                 streamWriter.Close();
