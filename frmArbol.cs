@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,8 +145,9 @@ namespace pryBonaderoED
 
         private void btnEquilibrar_Click(object sender, EventArgs e)
         {
-            //Equilibrar arbol binario
+            //Llamar al metodo equilibrar para que se equilibre el arbol
             clsArbolBinario.Equilibrar();
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
@@ -186,6 +188,31 @@ namespace pryBonaderoED
 
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+            // Mostrar diálogo para seleccionar la ubicación y el nombre del archivo CSV
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Archivo CSV (*.csv)|*.csv";
+            saveFileDialog.Title = "Guardar archivo CSV";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Crear el objeto StreamWriter para escribir en el archivo CSV
+                StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
+
+                // Escribir los encabezados en el archivo CSV
+                streamWriter.WriteLine("Código,Nombre,Trámite\n");
+
+                // Escribir los nodos en el archivo CSV utilizando alguno de los métodos Recorrer
+                clsArbolBinario.RecorrerInOrder(streamWriter);
+                //clsArbolBinario.RecorrerPreOrder(streamWriter);
+                //clsArbolBinario.RecorrerPostOrder(streamWriter);
+
+                // Cerrar el objeto StreamWriter
+                streamWriter.Close();
             }
         }
     }

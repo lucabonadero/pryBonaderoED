@@ -63,6 +63,7 @@ namespace pryBonaderoED
             this.rdbPostOrder = new System.Windows.Forms.RadioButton();
             this.rdbPreOrder = new System.Windows.Forms.RadioButton();
             this.rdbInOrder = new System.Windows.Forms.RadioButton();
+            this.btnExportar = new System.Windows.Forms.Button();
             this.grbEliminar.SuspendLayout();
             this.grbNuevo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArbol)).BeginInit();
@@ -363,7 +364,7 @@ namespace pryBonaderoED
             this.groupBox2.Controls.Add(this.rdbPostOrder);
             this.groupBox2.Controls.Add(this.rdbPreOrder);
             this.groupBox2.Controls.Add(this.rdbInOrder);
-            this.groupBox2.Location = new System.Drawing.Point(611, 231);
+            this.groupBox2.Location = new System.Drawing.Point(611, 270);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(147, 96);
             this.groupBox2.TabIndex = 27;
@@ -404,11 +405,22 @@ namespace pryBonaderoED
             this.rdbInOrder.Text = "InOrder";
             this.rdbInOrder.UseVisualStyleBackColor = true;
             // 
+            // btnExportar
+            // 
+            this.btnExportar.Location = new System.Drawing.Point(617, 231);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.Size = new System.Drawing.Size(138, 30);
+            this.btnExportar.TabIndex = 28;
+            this.btnExportar.Text = "Exportar";
+            this.btnExportar.UseVisualStyleBackColor = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // frmArbol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 445);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnEquilibrar);
             this.Controls.Add(this.gbRecorrido);
@@ -473,5 +485,6 @@ namespace pryBonaderoED
         private System.Windows.Forms.RadioButton rdbPostOrder;
         private System.Windows.Forms.RadioButton rdbPreOrder;
         private System.Windows.Forms.RadioButton rdbInOrder;
+        private System.Windows.Forms.Button btnExportar;
     }
 }

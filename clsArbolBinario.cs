@@ -315,14 +315,14 @@ namespace pryBonaderoED
         private void InOrderAsc(StreamWriter archivo, clsNodo R)
         {
             if (R.Izquierdo != null) InOrderAsc(archivo, R.Izquierdo);
-            archivo.Write(R.Codigo);
+            archivo.Write(R.Codigo + "\n");
             if (R.Derecho != null) InOrderAsc(archivo, R.Derecho);
 
         }
 
         private void PreOrderAsc(StreamWriter archivo, clsNodo R)
         {
-            archivo.Write(R.Codigo);
+            archivo.Write(R.Codigo + "\n");
             if (R.Izquierdo != null) PreOrderAsc(archivo, R.Izquierdo);
             if (R.Derecho != null) PreOrderAsc(archivo, R.Derecho);
         }
@@ -331,7 +331,7 @@ namespace pryBonaderoED
         {
             if (R.Izquierdo != null) PostOrderAsc(archivo, R.Izquierdo);
             if (R.Derecho != null) PostOrderAsc(archivo, R.Derecho);
-            archivo.Write(R.Codigo);
+            archivo.Write(R.Codigo + "\n");
 
         }
         #endregion
