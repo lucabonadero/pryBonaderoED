@@ -193,8 +193,6 @@ namespace pryBonaderoED
 
         private void btnExportar_Click(object sender, EventArgs e)
         {
-
-            // Mostrar diálogo para seleccionar la ubicación y el nombre del archivo CSV
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Archivo CSV (*.csv)|*.csv";
             saveFileDialog.Title = "Guardar archivo CSV";
@@ -204,12 +202,15 @@ namespace pryBonaderoED
                 StreamWriter streamWriter = new StreamWriter(saveFileDialog.FileName);
 
                 // Escribir los encabezados en el archivo CSV
-                streamWriter.WriteLine("Código,Nombre,Trámite\n");
+                streamWriter.WriteLine("Código,Nombre,Trámite");
 
                 // Escribir los nodos en el archivo CSV utilizando alguno de los métodos Recorrer
                 clsArbolBinario.RecorrerInOrder(streamWriter);
                 //clsArbolBinario.RecorrerPreOrder(streamWriter);
                 //clsArbolBinario.RecorrerPostOrder(streamWriter);
+
+                // Escribir los datos ingresados por el usuario en el archivo CSV
+                streamWriter.WriteLine(", " + txtNombre.Text + ", " + txtTramite.Text);
 
                 // Cerrar el objeto StreamWriter
                 streamWriter.Close();
