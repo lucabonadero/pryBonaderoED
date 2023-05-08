@@ -509,8 +509,79 @@ namespace pryBonaderoED
 
         }
         #endregion
+        #region treeview
+        #region Recorrer
+        public void RecorrerInOrderDes(TreeView Arbol)
+        {
+            Arbol.Nodes.Clear();
+            InOrderDes(Arbol.Nodes, Raiz);
+
+
+        }
+        public void RecorrerPreOrderDes(TreeView Arbol)
+        {
+            Arbol.Nodes.Clear();
+            PreOrderDes(Arbol.Nodes, Raiz);
+
+        }
+        public void RecorrerPostOrderDes(TreeView Arbol)
+        {
+            Arbol.Nodes.Clear();
+            PostOrderDes(Arbol.Nodes, Raiz);
+        }
         #endregion
-        
+        private void InOrderDes(TreeNodeCollection Arbol, clsNodo R)
+        {
+            if (R.Derecho != null) InOrderDes(Arbol, R.Derecho);
+            TreeNode NuevoNodo = Arbol.Add(R.Codigo.ToString());
+            if (R.Derecho != null || R.Izquierdo != null)
+            {
+                NuevoNodo.Nodes.Add(new TreeNode()); // Agregar un nodo vacío para que se muestre el símbolo "+"
+            }
+            if (R.Izquierdo != null) InOrderDes(Arbol, R.Izquierdo);
+            if (NuevoNodo.Nodes.Count > 0)
+            {
+                NuevoNodo.Expand(); // Expandir el nodo para que se muestre el símbolo "+"
+            }
+            else
+            {
+                NuevoNodo.Collapse(); // Colapsar el nodo si no tiene hijos
+            }
+
+
+
+        }
+        private void PreOrderDes(TreeNodeCollection Arbol, clsNodo R)
+        {
+            TreeNode NuevoNodo = Arbol.Add(R.Codigo.ToString());
+            if (R.Derecho != null || R.Izquierdo != null)
+            {
+                NuevoNodo.Nodes.Add(new TreeNode()); // Agregar un nodo vacío para que se muestre el símbolo "+"
+            }
+            if (R.Derecho != null) PreOrderDes(Arbol, R.Derecho);
+            if (R.Izquierdo != null) PreOrderDes(Arbol, R.Izquierdo);
+            if (NuevoNodo.Nodes.Count > 0)
+            {
+                NuevoNodo.Expand(); // Expandir el nodo para que se muestre el símbolo "+"
+            }
+            else
+            {
+                NuevoNodo.Collapse(); // Colapsar el nodo si no tiene hijos
+            }
+        }
+        private void PostOrderDes(TreeNodeCollection Arbol, clsNodo R)
+        {
+            if (R.Derecho != null) PostOrderDes(Arbol, R.Derecho);
+            if (R.Izquierdo != null) PostOrderDes(Arbol, R.Izquierdo);
+            TreeNode NuevoNodo = Arbol.Add(R.Codigo.ToString());
+
+        }
+        #endregion
+
+
+
+        #endregion
+
         #region Equilibrar
         private clsNodo[] vecEquilibrar = new clsNodo[100];
         private Int32 ind = 0;
