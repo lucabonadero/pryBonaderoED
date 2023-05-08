@@ -669,9 +669,10 @@ namespace pryBonaderoED
         }
         private void EquilibrarArbol(Int32 ini , Int32 fin)
         {
-            Int32 m = (ini + fin) / 2;
+            
             if (ini <= fin)
             {
+                Int32 m = (ini + fin) / 2;
                 Agregar(vecEquilibrar[m]);
                 EquilibrarArbol(ini, m - 1);
                 EquilibrarArbol(m + 1, fin);

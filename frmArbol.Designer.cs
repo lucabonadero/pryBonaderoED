@@ -65,6 +65,7 @@ namespace pryBonaderoED
             this.rdbPreOrder = new System.Windows.Forms.RadioButton();
             this.rdbInOrder = new System.Windows.Forms.RadioButton();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.btnLimpiarTodo = new System.Windows.Forms.Button();
             this.grbEliminar.SuspendLayout();
             this.grbNuevo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArbol)).BeginInit();
@@ -416,11 +417,22 @@ namespace pryBonaderoED
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
+            // btnLimpiarTodo
+            // 
+            this.btnLimpiarTodo.Location = new System.Drawing.Point(611, 372);
+            this.btnLimpiarTodo.Name = "btnLimpiarTodo";
+            this.btnLimpiarTodo.Size = new System.Drawing.Size(147, 61);
+            this.btnLimpiarTodo.TabIndex = 29;
+            this.btnLimpiarTodo.Text = "Limpiar Todo";
+            this.btnLimpiarTodo.UseVisualStyleBackColor = true;
+            this.btnLimpiarTodo.Click += new System.EventHandler(this.btnLimpiarTodo_Click);
+            // 
             // frmArbol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(763, 445);
+            this.Controls.Add(this.btnLimpiarTodo);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnEquilibrar);
@@ -488,5 +500,6 @@ namespace pryBonaderoED
         private System.Windows.Forms.RadioButton rdbPreOrder;
         private System.Windows.Forms.RadioButton rdbInOrder;
         private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnLimpiarTodo;
     }
 }

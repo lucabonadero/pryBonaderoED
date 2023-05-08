@@ -22,7 +22,7 @@ namespace pryBonaderoED
         private void btnAgregar_Click(object sender, EventArgs e)
 
         {
-            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "" && (rdbAsc.Checked || rdbDes.Checked == true) && (rdbInOrder.Checked || rdbPreOrder.Checked || rdbPostOrder.Checked == true))
             {
                 clsNodo clsNodo = new clsNodo();
                 clsNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
@@ -93,8 +93,21 @@ namespace pryBonaderoED
                     MessageBox.Show("Marque algun boton de opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            else
+            {
+                MessageBox.Show("Faltan datos por completar o botones por marcar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-
+           
+            if (lstCola.Items.Count > 0)
+            {
+                btnEliminar.Enabled = true;
+            }
+            else
+            {
+                btnEliminar.Enabled = false;
+            }
+            #region Codigo antiguo (por las dudas)
             //if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
             //{
             //    clsNodo clsNodo = new clsNodo();
@@ -138,14 +151,7 @@ namespace pryBonaderoED
             //{
             //    MessageBox.Show("Faltan datos por completar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
-            if (lstCola.Items.Count > 0)
-            {
-                btnEliminar.Enabled = true;
-            }
-            else
-            {
-                btnEliminar.Enabled = false;
-            }
+            #endregion //
         }
 
 
@@ -218,6 +224,12 @@ namespace pryBonaderoED
         {
             //Llamar al metodo equilibrar para que se equilibre el arbol
             clsArbolBinario.Equilibrar();
+            //Mostrar el arbol equilibrado en el datagridview y en el listbox y en el combobox y en el treeview
+            clsArbolBinario.RecorrerInOrder(dgvArbol);
+            clsArbolBinario.RecorrerInOrder(lstCola);
+            clsArbolBinario.RecorrerInOrder(cmbCodigo);
+            clsArbolBinario.RecorrerInOrder(treeView1);
+
 
         }
 
@@ -303,6 +315,28 @@ namespace pryBonaderoED
                 }
                 streamWriter.Close();
             }
+        }
+
+        private void btnLimpiarTodo_Click(object sender, EventArgs e)
+        {
+            //Limpiar todo el formulario
+            txtCodigo.Text = "";
+            txtNombre.Text = "";
+            txtTramite.Text = "";
+            txtCodigoBUS.Text = "";
+            txtNombreBUS.Text = "";
+            txtTramiteBUS.Text = "";
+            cmbCodigo.Text = "";
+            dgvArbol.Rows.Clear();
+            lstCola.Items.Clear();
+            cmbCodigo.Items.Clear();
+            treeView1.Nodes.Clear();
+            clsArbolBinario.Raiz = null;
+            btnAgregar.Enabled = false;
+            btnEliminar.Enabled = false;
+            rdbAsc.Checked = true;
+            rdbInOrder.Checked = true;
+            txtCodigo.Focus();
         }
     }
 }
