@@ -63,6 +63,16 @@ namespace pryBonaderoED.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FondoFRM {
+            get {
+                object obj = ResourceManager.GetObject("FondoFRM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap representacionCola {
             get {
                 object obj = ResourceManager.GetObject("representacionCola", resourceCulture);

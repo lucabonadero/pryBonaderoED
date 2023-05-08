@@ -22,51 +22,122 @@ namespace pryBonaderoED
         private void btnAgregar_Click(object sender, EventArgs e)
 
         {
-            
-           
-                if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
-                {
-                    clsNodo clsNodo = new clsNodo();
-                    clsNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
-                    clsNodo.Nombre = (txtNombre.Text);
-                    clsNodo.Tramite = (txtTramite.Text);
+            if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
+            {
+                clsNodo clsNodo = new clsNodo();
+                clsNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
+                clsNodo.Nombre = (txtNombre.Text);
+                clsNodo.Tramite = (txtTramite.Text);
 
-                    clsArbolBinario.Agregar(clsNodo);
-                    if (clsArbolBinario.Raiz == null)
-                    {
-                        btnEliminar.Enabled = true; // Habilitar el botón eliminar
-                    }
-                    if (rdbAsc.Checked == true)
+                clsArbolBinario.Agregar(clsNodo);
+                if (clsArbolBinario.Raiz == null)
+                {
+                    btnEliminar.Enabled = true; // Habilitar el botón eliminar
+                }
+                if (rdbAsc.Checked == true)
+                {
+                    if (rdbInOrder.Checked == true)
                     {
                         clsArbolBinario.RecorrerInOrder(dgvArbol);
                         clsArbolBinario.RecorrerInOrder(lstCola);
                         clsArbolBinario.RecorrerInOrder(cmbCodigo);
                         treeView1.Nodes.Clear();
                         clsArbolBinario.RecorrerInOrder(treeView1);
-
-                }
-                    else
+                    }
+                    else if (rdbPreOrder.Checked == true)
                     {
-                        if (rdbDes.Checked == true)
-                        {
-                            clsArbolBinario.RecorrerInOrderDes(dgvArbol);
-                            clsArbolBinario.RecorrerInOrderDes(lstCola);
-                            clsArbolBinario.RecorrerInOrderDes(cmbCodigo);
-                            
+                        clsArbolBinario.RecorrerPreOrder(dgvArbol);
+                        clsArbolBinario.RecorrerPreOrder(lstCola);
+                        clsArbolBinario.RecorrerPreOrder(cmbCodigo);
+                        treeView1.Nodes.Clear();
+                        clsArbolBinario.RecorrerPreOrder(treeView1);
                     }
-                        MessageBox.Show("Marque algun boton de opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    else if (rdbPostOrder.Checked == true)
+                    {
+                        clsArbolBinario.RecorrerPostOrder(dgvArbol);
+                        clsArbolBinario.RecorrerPostOrder(lstCola);
+                        clsArbolBinario.RecorrerPostOrder(cmbCodigo);
+                        treeView1.Nodes.Clear();
+                        clsArbolBinario.RecorrerPostOrder(treeView1);
                     }
-                                
-
-                    txtCodigo.Text = "";
-                    txtNombre.Text = "";
-                    txtTramite.Text = "";
+                }
+                else if (rdbDes.Checked == true)
+                {
+                    if (rdbInOrder.Checked == true)
+                    {
+                        clsArbolBinario.RecorrerInOrderDes(dgvArbol);
+                        clsArbolBinario.RecorrerInOrderDes(lstCola);
+                        clsArbolBinario.RecorrerInOrderDes(cmbCodigo);
+                        treeView1.Nodes.Clear();
+                        clsArbolBinario.RecorrerInOrderDes(treeView1);
+                    }
+                    else if (rdbPreOrder.Checked == true)
+                    {
+                        clsArbolBinario.RecorrerPreOrderDes(dgvArbol);
+                        clsArbolBinario.RecorrerPreOrderDes(lstCola);
+                        clsArbolBinario.RecorrerPreOrderDes(cmbCodigo);
+                        treeView1.Nodes.Clear();
+                        clsArbolBinario.RecorrerPreOrderDes(treeView1);
+                    }
+                    else if (rdbPostOrder.Checked == true)
+                    {
+                        clsArbolBinario.RecorrerPostOrderDes(dgvArbol);
+                        clsArbolBinario.RecorrerPostOrderDes(lstCola);
+                        clsArbolBinario.RecorrerPostOrderDes(cmbCodigo);
+                        treeView1.Nodes.Clear();
+                        clsArbolBinario.RecorrerPostOrderDes(treeView1);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Faltan datos por completar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Marque algun boton de opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+
+
+            //if (txtCodigo.Text != "" && txtNombre.Text != "" && txtTramite.Text != "")
+            //{
+            //    clsNodo clsNodo = new clsNodo();
+            //    clsNodo.Codigo = Convert.ToInt32(txtCodigo.Text);
+            //    clsNodo.Nombre = (txtNombre.Text);
+            //    clsNodo.Tramite = (txtTramite.Text);
+
+            //    clsArbolBinario.Agregar(clsNodo);
+            //    if (clsArbolBinario.Raiz == null)
+            //    {
+            //        btnEliminar.Enabled = true; // Habilitar el botón eliminar
+            //    }
+            //    if (rdbAsc.Checked == true)
+            //    {
+            //        clsArbolBinario.RecorrerInOrder(dgvArbol);
+            //        clsArbolBinario.RecorrerInOrder(lstCola);
+            //        clsArbolBinario.RecorrerInOrder(cmbCodigo);
+            //        treeView1.Nodes.Clear();
+            //        clsArbolBinario.RecorrerInOrder(treeView1);
+
+            //}
+            //    else
+            //    {
+            //        if (rdbDes.Checked == true)
+            //        {
+            //            clsArbolBinario.RecorrerInOrderDes(dgvArbol);
+            //            clsArbolBinario.RecorrerInOrderDes(lstCola);
+            //            clsArbolBinario.RecorrerInOrderDes(cmbCodigo);
+
+            //    }
+            //        MessageBox.Show("Marque algun boton de opcion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //    }
+
+
+            //    txtCodigo.Text = "";
+            //    txtNombre.Text = "";
+            //    txtTramite.Text = "";
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Faltan datos por completar", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             if (lstCola.Items.Count > 0)
             {
                 btnEliminar.Enabled = true;

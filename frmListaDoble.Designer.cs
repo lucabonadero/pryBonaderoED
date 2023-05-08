@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaDoble));
             this.grbEliminar = new System.Windows.Forms.GroupBox();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -281,8 +282,10 @@
             this.Controls.Add(this.prbGrafico);
             this.Controls.Add(this.grbNuevo);
             this.Controls.Add(this.grbListado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListaDoble";
-            this.Text = "frmListaDoble";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Estructura Lineal - Lista Doble";
             this.Load += new System.EventHandler(this.frmListaDoble_Load);
             this.grbEliminar.ResumeLayout(false);
             this.grbEliminar.PerformLayout();

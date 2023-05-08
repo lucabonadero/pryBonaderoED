@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaSimple));
             this.dgvCola = new System.Windows.Forms.DataGridView();
             this.clmCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clmNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -241,8 +242,10 @@
             this.Controls.Add(this.prbGrafico);
             this.Controls.Add(this.grbNuevo);
             this.Controls.Add(this.grbListado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmListaSimple";
-            this.Text = "frmListaSimple";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Estructura Linea - Lista Simple";
             this.Load += new System.EventHandler(this.frmListaSimple_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCola)).EndInit();
             this.grbNuevo.ResumeLayout(false);

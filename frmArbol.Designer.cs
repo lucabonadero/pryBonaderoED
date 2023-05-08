@@ -29,6 +29,7 @@ namespace pryBonaderoED
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArbol));
             this.grbEliminar = new System.Windows.Forms.GroupBox();
             this.cmbCodigo = new System.Windows.Forms.ComboBox();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -430,9 +431,10 @@ namespace pryBonaderoED
             this.Controls.Add(this.grbEliminar);
             this.Controls.Add(this.grbNuevo);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmArbol";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmArbol";
+            this.Text = "Estructura No Lineal - Arbol";
             this.Load += new System.EventHandler(this.frmArbol_Load);
             this.grbEliminar.ResumeLayout(false);
             this.grbEliminar.PerformLayout();

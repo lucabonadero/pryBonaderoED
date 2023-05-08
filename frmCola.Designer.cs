@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCola));
             this.grbNuevo = new System.Windows.Forms.GroupBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtTramite = new System.Windows.Forms.TextBox();
@@ -287,9 +288,10 @@
             this.Controls.Add(this.grbEliminado);
             this.Controls.Add(this.grbNuevo);
             this.Controls.Add(this.grbListado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCola";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmCola";
+            this.Text = "Estructura Lineal - Cola";
             this.Load += new System.EventHandler(this.frmCola_Load);
             this.grbNuevo.ResumeLayout(false);
             this.grbNuevo.PerformLayout();

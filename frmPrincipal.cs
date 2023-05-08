@@ -62,5 +62,11 @@ namespace pryBonaderoED
             frmArbol frmArbol = new frmArbol();
             frmArbol.ShowDialog();
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            //Ajustar background image
+            this.BackgroundImageLayout = ImageLayout.Stretch;
+        }
     }
 }

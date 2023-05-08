@@ -414,16 +414,41 @@ namespace pryBonaderoED
             lstLista.Items.Clear();
             InOrderDes(lstLista, Raiz);
 
+        }
+        public void RecorrerPreOrderDes(ListBox lstLista)
+        {
+            lstLista.Items.Clear();
+            PreOrderDes(lstLista, Raiz);
+
+        }
+        public void RecorrerPostOrderDes(ListBox lstLista)
+        {
+            lstLista.Items.Clear();
+            PostOrderDes(lstLista, Raiz);
 
         }
         #endregion
         private void InOrderDes(ListBox lst, clsNodo R)
         {
-            if (R.Derecho != null) InOrderDes(lst, R.Derecho);
-            lst.Items.Add(R.Codigo);
             if (R.Izquierdo != null) InOrderDes(lst, R.Izquierdo);
+            lst.Items.Add(R.Codigo);
+            if (R.Derecho != null) InOrderDes(lst, R.Derecho);
 
         }
+        private void PreOrderDes(ListBox lst, clsNodo R)
+        {
+            lst.Items.Add(R.Codigo);
+            if (R.Izquierdo != null) PreOrderDes(lst, R.Izquierdo);
+            if (R.Derecho != null) PreOrderDes(lst, R.Derecho);
+
+        }
+        private void PostOrderDes(ListBox lst, clsNodo R)
+        {
+            if (R.Izquierdo != null) PostOrderDes(lst, R.Izquierdo);
+            if (R.Derecho != null) PostOrderDes(lst, R.Derecho);
+            lst.Items.Add(R.Codigo);
+        }
+
         #endregion
         #region cbo
         //Recorrer in order, pre order, post order en ComboBox
@@ -432,16 +457,38 @@ namespace pryBonaderoED
         {
             cbo.Items.Clear();
             InOrderDes(cbo, Raiz);
-
-
+        }
+        public void RecorrerPreOrderDes(ComboBox cbo)
+        {
+            cbo.Items.Clear();
+            PreOrderDes(cbo, Raiz);
+        }
+        public void RecorrerPostOrderDes(ComboBox cbo)
+        {
+            cbo.Items.Clear();
+            PostOrderDes(cbo, Raiz);
         }
         #endregion
 
         private void InOrderDes(ComboBox cbo, clsNodo R)
         {
-            if (R.Derecho != null) InOrderDes(cbo, R.Derecho);
-            cbo.Items.Add(R.Codigo);
             if (R.Izquierdo != null) InOrderDes(cbo, R.Izquierdo);
+            cbo.Items.Add(R.Codigo);
+            if (R.Derecho != null) InOrderDes(cbo, R.Derecho);
+
+        }
+        private void PreOrderDes(ComboBox cbo, clsNodo R)
+        {
+            cbo.Items.Add(R.Codigo);
+            if (R.Izquierdo != null) PreOrderDes(cbo, R.Izquierdo);
+            if (R.Derecho != null) PreOrderDes(cbo, R.Derecho);
+
+        }
+        private void PostOrderDes(ComboBox cbo, clsNodo R)
+        {
+            if (R.Izquierdo != null) PostOrderDes(cbo, R.Izquierdo);
+            if (R.Derecho != null) PostOrderDes(cbo, R.Derecho);
+            cbo.Items.Add(R.Codigo);
 
         }
         #endregion
@@ -452,8 +499,16 @@ namespace pryBonaderoED
         {
             dgv.Rows.Clear();
             InOrderDes(dgv, Raiz);
-
-
+        }
+        public void RecorrerPreOrderDes(DataGridView dgv)
+        {
+            dgv.Rows.Clear();
+            PreOrderDes(dgv, Raiz);
+        }
+        public void RecorrerPostOrderDes(DataGridView dgv)
+        {
+            dgv.Rows.Clear();
+            PostOrderDes(dgv, Raiz);
         }
         #endregion
 
@@ -462,6 +517,20 @@ namespace pryBonaderoED
             if (R.Derecho != null) InOrderDes(dgv, R.Derecho);
             dgv.Rows.Add(R.Codigo);
             if (R.Izquierdo != null) InOrderDes(dgv, R.Izquierdo);
+
+        }
+        private void PreOrderDes(DataGridView dgv, clsNodo R)
+        {
+            dgv.Rows.Add(R.Codigo);
+            if (R.Izquierdo != null) PreOrderDes(dgv, R.Izquierdo);
+            if (R.Derecho != null) PreOrderDes(dgv, R.Derecho);
+
+        }
+        private void PostOrderDes(DataGridView dgv, clsNodo R)
+        {
+            if (R.Izquierdo != null) PostOrderDes(dgv, R.Izquierdo);
+            if (R.Derecho != null) PostOrderDes(dgv, R.Derecho);
+            dgv.Rows.Add(R.Codigo);
 
         }
         #endregion
