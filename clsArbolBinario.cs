@@ -374,8 +374,6 @@ namespace pryBonaderoED
                 NuevoNodo.Collapse(); // Colapsar el nodo si no tiene hijos
             }
 
-
-
         }
         private void PreOrderAsc(TreeNodeCollection Arbol, clsNodo R)
         {
